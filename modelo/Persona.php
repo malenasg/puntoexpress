@@ -18,12 +18,12 @@ Class Persona
 		return ejecutarConsulta($sql);
 	}
 
-	public function insertare($nombre, $apellido, $tipo_documento, $num_documento, $direccion, $telefono, $email, $cargo, $fecha_ingreso)
+	public function insertare($nombre, $apellido, $cuit, $direccion, $telefono, $email, $cargo, $fecha_ingreso)
 	{
 		$sql = "INSERT INTO persona 
-		(tipo_persona, nombre, apellido, tipo_documento, num_documento, direccion, telefono, email, cargo, fecha_ingreso, condicion)
+		(tipo_persona, nombre, apellido, cuit, direccion, telefono, email, cargo, fecha_ingreso, condicion)
 		VALUES 
-		('Empleado', '$nombre', '$apellido', '$tipo_documento', '$num_documento', '$direccion', '$telefono', '$email', '$cargo', '$fecha_ingreso', '1')";
+		('Empleado', '$nombre', '$apellido', '$cuit', '$direccion', '$telefono', '$email', '$cargo', '$fecha_ingreso', '1')";
 
 		return ejecutarConsulta($sql);
 	}
@@ -39,19 +39,23 @@ Class Persona
 
 
 	//Implementamos un método para editar registros
-	public function editarc($idpersona,$tipo_persona,$nombre,$tipo_documento,$num_documento,$direccion,$telefono,$email,$condicion)
+	public function editarc($idpersona,$tipo_persona,$nombre,$cuit,$direccion,$telefono,$email,$condicion)
 	{
-		$sql="UPDATE persona SET tipo_persona='$tipo_persona',nombre='$nombre',tipo_documento='$tipo_documento',num_documento='$num_documento',direccion='$direccion',telefono='$telefono',email='$email', condicion='1' WHERE idpersona='$idpersona'";
+		$sql="UPDATE persona SET tipo_persona='$tipo_persona',nombre='$nombre',cuit='$cuit',direccion='$direccion',telefono='$telefono',email='$email', condicion='1' WHERE idpersona='$idpersona'";
 		return ejecutarConsulta($sql);
 	}
 
-	public function editare($idpersona, $nombre, $apellido, $tipo_documento, $num_documento, $direccion, $telefono, $email, $cargo, $fecha_ingreso)
+	public function editare($idpersona, $nombre, $apellido, $cuit, $direccion, $telefono, $email, $cargo, $fecha_ingreso)
 	{
 		$sql = "UPDATE persona SET 
 		nombre='$nombre',
 		apellido='$apellido',
-		tipo_documento='$tipo_documento',
-		num_documento='$num_documento',
+		cuit='$cuit',
+		direccion='$direccion',
+		telefono='$telefono',
+		email='$email',
+		cargo='$cargo',
+		fecha_ingreso='$fecha_ingreso',
 		direccion='$direccion',
 		telefono='$telefono',
 		email='$email',

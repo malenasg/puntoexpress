@@ -44,23 +44,23 @@ require '../header.php';
                           <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
                             <label>Razón social:</label>
                             <input type="hidden" name="idpersona" id="idpersona">
-                            <input type="text" class="form-control" name="razon_social" id="razon_social" maxlength="100" placeholder="Razón social" required>
+                            <input type="text" class="form-control" name="razon_social" id="razon_social" maxlength="40" placeholder="Razón social" required>
                           </div>
                           <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
                             <label>CUIT:</label>
-                            <input type="text" class="form-control" name="cuit" id="cuit" maxlength="20" placeholder="CUIT" required>
+                            <input type="text" class="form-control" name="cuit" id="cuit" maxlength="13" placeholder="CUIT" required>
                           </div>
                           <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
                             <label>Direccion:</label>
-                            <input type="text" class="form-control" name="direccion" id="direccion" maxlength="100" placeholder="Ingrese direccion">
+                            <input type="text" class="form-control" name="direccion" id="direccion" maxlength="60" placeholder="Ingrese direccion">
                           </div>
                           <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
                             <label>Teléfono:</label>
-                            <input type="text" class="form-control" name="telefono" id="telefono" maxlength="20" placeholder="Ingrese teléfono">
+                            <input type="text" class="form-control" name="telefono" id="telefono" maxlength="14" placeholder="Ingrese teléfono">
                           </div>
                           <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
                             <label>Email:</label>
-                            <input type="email" class="form-control" name="email" id="email" maxlength="100" placeholder="Email">
+                            <input type="email" class="form-control" name="email" id="email" maxlength="75" placeholder="Email">
                           </div>
                           <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
                             <button class="btn btn-primary" type="submit" id="btnGuardar"><i class="fa fa-save"></i> Guardar</button>

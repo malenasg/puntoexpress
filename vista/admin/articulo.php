@@ -26,6 +26,7 @@ require '../header.php';
                             <th>Código</th>
                             <th>Stock</th>
                             <th>Imagen</th>
+                            <th>Disponibilidad online</th>
                             <th>Estado</th>
                           </thead>
                           <tbody>                            
@@ -38,6 +39,7 @@ require '../header.php';
                             <th>Código</th>
                             <th>Stock</th>
                             <th>Imagen</th>
+                            <th>Disponibilidad online</th>
                             <th>Estado</th>
                           </tfoot>
                         </table>
@@ -58,8 +60,16 @@ require '../header.php';
                             <select id="idmarca" name="idmarca" class="form-control selectpicker" data-live-search="true" required></select>
                           </div>
                           <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <label>Precio(*):</label>
+                            <input type="number" class="form-control" name="precio" id="precio" required>
+                          </div>
+                          <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
                             <label>Stock(*):</label>
                             <input type="number" class="form-control" name="stock" id="stock" required>
+                          </div>
+                          <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <label>Stock mínimo(*):</label>
+                            <input type="number" class="form-control" name="stock_minimo" id="stock_minimo" required>
                           </div>
                           <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
                             <label>Descripción:</label>
@@ -72,6 +82,13 @@ require '../header.php';
                             <img src="" width="150px" height="120px" id="imagenmuestra">
                           </div>
                           <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <label>Disponibilidad online:</label>
+                            <select name="venta_pausada" id="venta_pausada" class="form-control selectpicker" required>
+                              <option value="0">Disponible</option>
+                              <option value="1">No disponible</option>
+                            </select>
+                          </div>
+                          <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
                             <label>Código:</label>
                             <input type="text" class="form-control" name="codigo" id="codigo" placeholder="Código Barras">
                             <button class="btn btn-success" type="button" onclick="generarbarcode()">Generar</button>
@@ -80,6 +97,7 @@ require '../header.php';
                               <svg id="barcode"></svg>
                             </div>
                           </div>
+
                           <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
                             <button class="btn btn-primary" type="submit" id="btnGuardar"><i class="fa fa-save"></i> Guardar</button>
 

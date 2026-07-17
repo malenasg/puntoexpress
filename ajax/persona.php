@@ -8,8 +8,6 @@ $nombre=isset($_POST["nombre"])? limpiarCadena($_POST["nombre"]):"";
 $apellido=isset($_POST["apellido"])? limpiarCadena($_POST["apellido"]):"";
 $razon_social=isset($_POST["razon_social"])? limpiarCadena($_POST["razon_social"]):"";
 $cuit=isset($_POST["cuit"])? limpiarCadena($_POST["cuit"]):"";
-$tipo_documento=isset($_POST["tipo_documento"])? limpiarCadena($_POST["tipo_documento"]):"";
-$num_documento=isset($_POST["num_documento"])? limpiarCadena($_POST["num_documento"]):"";
 $cargo=isset($_POST["cargo"])? limpiarCadena($_POST["cargo"]):"";
 $fecha_ingreso=isset($_POST["fecha_ingreso"])? limpiarCadena($_POST["fecha_ingreso"]):"";
 $direccion=isset($_POST["direccion"])? limpiarCadena($_POST["direccion"]):"";
@@ -33,19 +31,19 @@ switch ($_GET["op"]){
 		}
 		else if ($tipo_persona == "Empleado") {
 			if (empty($idpersona)) {
-				$rspta=$persona->insertare($nombre,$apellido,$tipo_documento,$num_documento,$direccion,$telefono,$email,$cargo,$fecha_ingreso);
+				$rspta=$persona->insertare($nombre,$apellido,$cuit,$direccion,$telefono,$email,$cargo,$fecha_ingreso);
 				echo $rspta ? "Empleado registrado" : "Empleado no se pudo registrar";
 			} else {
-				$rspta=$persona->editare($idpersona,$nombre,$apellido,$tipo_documento,$num_documento,$direccion,$telefono,$email,$cargo,$fecha_ingreso);
+				$rspta=$persona->editare($idpersona,$nombre,$apellido,$cuit,$direccion,$telefono,$email,$cargo,$fecha_ingreso);
 				echo $rspta ? "Empleado actualizado" : "Empleado no se pudo actualizar";
 			}
 		}
 		else {
 			if (empty($idpersona)){
-				$rspta=$persona->insertarc($tipo_persona,$nombre,$tipo_documento,$num_documento,$direccion,$telefono,$email,$condicion);
+				$rspta=$persona->insertarc($tipo_persona,$nombre,$cuit,$direccion,$telefono,$email,$condicion);
 				echo $rspta ? "Cliente registrado" : "Cliente no se pudo registrar";
 			} else {
-				$rspta=$persona->editarc($idpersona,$tipo_persona,$nombre,$tipo_documento,$num_documento,$direccion,$telefono,$email,$condicion);
+				$rspta=$persona->editarc($idpersona,$tipo_persona,$nombre,$cuit,$direccion,$telefono,$email,$condicion);
 				echo $rspta ? "Cliente actualizado" : "Cliente no se pudo actualizar";
 			}
 		}
@@ -55,11 +53,11 @@ switch ($_GET["op"]){
 	case 'desactivar':
 		$rspta=$persona->desactivar($idpersona);
 		if ($tipo_persona == "Proveedor") {
-			echo $rspta ? "Proveedor Desactivado" : "Proveedor no se puede desactivar";
+			echo $rspta ? "Proveedor desactivado" : "Proveedor no se puede desactivar";
 		} else if ($tipo_persona == "Empleado") {
- 		echo $rspta ? "Empleado Desactivado" : "Empleado no se puede desactivar";
+ 		echo $rspta ? "Empleado desactivado" : "Empleado no se puede desactivar";
 		} else {
-			echo $rspta ? "Cliente Desactivado" : "Cliente no se puede desactivar";}
+			echo $rspta ? "Cliente desactivado" : "Cliente no se puede desactivar";}
  		break;
 	break;
 
@@ -81,6 +79,7 @@ switch ($_GET["op"]){
  		echo json_encode($rspta);
 	break;
 
+	//Adaptar luego para listar clientes, empleados y proveedores
 	case 'listarc':
 		$rspta=$persona->listarc();
  		//Vamos a declarar un array
@@ -121,7 +120,7 @@ switch ($_GET["op"]){
  					'<button class="btn btn-warning" onclick="mostrar('.$reg->idpersona.')"><i class="fa fa-pencil"></i></button>'.
  					' <button class="btn btn-primary" onclick="activar('.$reg->idpersona.')"><i class="fa fa-check"></i></button>',
  				"1"=>$reg->nombre." ".$reg->apellido,
-				"2"=>$reg->num_documento,
+				"2"=>$reg->cuit,
 				"3"=>$reg->telefono,
 				"4"=>$reg->email,
 				"5"=>$reg->cargo,

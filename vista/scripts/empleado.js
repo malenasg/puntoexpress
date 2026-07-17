@@ -14,8 +14,7 @@ function limpiar()
 {
     $("#nombre").val("");
     $("#apellido").val("");
-    $("#tipo_documento").val("DNI");
-    $("#num_documento").val("");
+    $("#cuit").val("");
     $("#direccion").val("");
     $("#telefono").val("");
     $("#email").val("");
@@ -111,8 +110,7 @@ function mostrar(idpersona)
 
         $("#nombre").val(data.nombre);
         $("#apellido").val(data.apellido);
-        $("#tipo_documento").val(data.tipo_documento);
-        $("#num_documento").val(data.num_documento);
+        $("#cuit").val(data.cuit);
         $("#direccion").val(data.direccion);
         $("#telefono").val(data.telefono);
         $("#email").val(data.email);

@@ -22,7 +22,7 @@ require '../header.php';
               <thead>
                 <th>Opciones</th>
                 <th>Nombre</th>
-                <th>Documento</th>
+                <th>Cuil</th>
                 <th>Teléfono</th>
                 <th>Email</th>
                 <th>Cargo</th>
@@ -33,7 +33,7 @@ require '../header.php';
               <tfoot>
                 <th>Opciones</th>
                 <th>Nombre</th>
-                <th>Documento</th>
+                <th>Cuil</th>
                 <th>Teléfono</th>
                 <th>Email</th>
                 <th>Cargo</th>
@@ -51,47 +51,40 @@ require '../header.php';
 
               <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
                 <label>Nombre:</label>
-                <input type="text" class="form-control" name="nombre" id="nombre" maxlength="100" placeholder="Nombre" required>
+                <input type="text" class="form-control" name="nombre" id="nombre" maxlength="40" placeholder="Nombre" required>
               </div>
 
               <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
                 <label>Apellido:</label>
-                <input type="text" class="form-control" name="apellido" id="apellido" maxlength="100" placeholder="Apellido" required>
+                <input type="text" class="form-control" name="apellido" id="apellido" maxlength="25" placeholder="Apellido" required>
               </div>
-
-              <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                <label>Tipo de documento:</label>
-                <select class="form-control" name="tipo_documento" id="tipo_documento" required>
-                  <option value="DNI">DNI</option>
-                  <option value="Libreta cívica">Libreta cívica</option>
-                  <option value="Pasaporte">Pasaporte</option>
-                  <option value="Libreta de Enrolamiento">Libreta de Enrolamiento</option>
-                </select>
+                <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <label>Cuil:</label> 
+                <input type="text" class="form-control" name="cuit" id="cuit" maxlength="13" placeholder="CUIL">
               </div>
-
-              <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                <label>Número de documento:</label>
-                <input type="text" class="form-control" name="num_documento" id="num_documento" maxlength="20" placeholder="Número de documento">
-              </div>
-
               <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
                 <label>Dirección:</label>
-                <input type="text" class="form-control" name="direccion" id="direccion" maxlength="100" placeholder="Dirección">
+                <input type="text" class="form-control" name="direccion" id="direccion" maxlength="60" placeholder="Dirección">
               </div>
-
               <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
                 <label>Teléfono:</label>
-                <input type="text" class="form-control" name="telefono" id="telefono" maxlength="20" placeholder="Teléfono">
+                <input type="text" class="form-control" name="telefono" id="telefono" maxlength="14" placeholder="Teléfono">
               </div>
 
               <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
                 <label>Email:</label>
-                <input type="email" class="form-control" name="email" id="email" maxlength="80" placeholder="Email">
+                <input type="email" class="form-control" name="email" id="email" maxlength="75" placeholder="Email">
               </div>
 
               <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
                 <label>Cargo:</label>
-                <input type="text" class="form-control" name="cargo" id="cargo" maxlength="50" placeholder="Cargo">
+                <select class="form-control" name="cargo" id="cargo" required>
+                  <option value="">Seleccione un cargo</option>
+                  <option value="Encargado">Encargado</option>
+                  <option value="Cajero">Cajero</option>
+                  <option value="Repartidor">Repartidor</option>
+
+                </select>
               </div>
 
               <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">

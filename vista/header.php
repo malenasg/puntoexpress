@@ -38,8 +38,7 @@
 
       <!-- Logo -->
       <a href="escritorio.php" class="logo">
-        <span class="logo-mini"><b>PE</b></span>
-        <span class="logo-lg"><b>Punto</b> Express</span>
+        <img src="../../public/img/logoalt2.png" alt="Logo" class="img-responsive" style="padding: 0px 5px 5px 5px;">
       </a>
 
       <!-- Barra superior -->

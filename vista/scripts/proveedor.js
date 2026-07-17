@@ -14,9 +14,8 @@ function init(){
 //Función limpiar
 function limpiar()
 {
-	$("#nombre").val("");
-    $("#tipo_documento").val("");
-    $("#num_documento").val("");
+	$("#razon_social").val("");
+	$("#cuit").val("");
     $("#direccion").val("");
     $("#telefono").val("");
     $("#email").val("");

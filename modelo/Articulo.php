@@ -11,17 +11,17 @@ Class Articulo
 	}
 
 	//Implementamos un método para insertar registros
-	public function insertar($idcategoria,$idmarca,$codigo,$nombre,$stock,$descripcion,$imagen,$condicion)
+	public function insertar($idcategoria,$idmarca,$codigo,$nombre,$precio,$stock,$stock_minimo,$descripcion,$imagen,$venta_pausada,$condicion)
 	{
-		$sql="INSERT INTO articulo (idcategoria,idmarca,codigo,nombre,stock,descripcion,imagen,condicion)
-		VALUES ('$idcategoria','$idmarca','$codigo','$nombre','$stock','$descripcion','$imagen','1')";
+		$sql="INSERT INTO articulo (idcategoria,idmarca,codigo,nombre,precio,stock,stock_minimo,descripcion,imagen,venta_pausada,condicion)
+		VALUES ('$idcategoria','$idmarca','$codigo','$nombre','$precio','$stock','$stock_minimo','$descripcion','$imagen','$venta_pausada','1')";
 		return ejecutarConsulta($sql);
 	}
 
 	//Implementamos un método para editar registros
-	public function editar($idarticulo,$idcategoria,$idmarca,$codigo,$nombre,$stock,$descripcion,$imagen,$condicion)
+	public function editar($idarticulo,$idcategoria,$idmarca,$codigo,$nombre,$precio,$stock,$stock_minimo,$descripcion,$imagen,$venta_pausada,$condicion)
 	{
-		$sql="UPDATE articulo SET idcategoria='$idcategoria',idmarca='$idmarca',codigo='$codigo',nombre='$nombre',stock='$stock',descripcion='$descripcion',imagen='$imagen',condicion='1' WHERE idarticulo='$idarticulo'";
+		$sql="UPDATE articulo SET idcategoria='$idcategoria',idmarca='$idmarca',codigo='$codigo',nombre='$nombre',precio='$precio',stock='$stock',stock_minimo='$stock_minimo',descripcion='$descripcion',imagen='$imagen',venta_pausada='$venta_pausada',condicion='1' WHERE idarticulo='$idarticulo'";
 		return ejecutarConsulta($sql);
 	}
 
@@ -49,7 +49,7 @@ Class Articulo
 	//Implementar un método para listar los registros
 	public function listar()
 	{
-		$sql="SELECT a.idarticulo,a.idcategoria,c.nombre as categoria,a.idmarca,m.nombre as marca,a.codigo,a.nombre,a.stock,a.descripcion,a.imagen,a.condicion FROM articulo a INNER JOIN categoria c ON a.idcategoria=c.idcategoria INNER JOIN marca m ON a.idmarca=m.idmarca";
+		$sql="SELECT a.idarticulo,a.idcategoria,c.nombre as categoria,a.idmarca,m.nombre as marca,a.codigo,a.nombre,a.precio,a.stock,a.stock_minimo,a.descripcion,a.imagen,a.venta_pausada,a.condicion FROM articulo a INNER JOIN categoria c ON a.idcategoria=c.idcategoria INNER JOIN marca m ON a.idmarca=m.idmarca";
 		return ejecutarConsulta($sql);		
 	}
 }

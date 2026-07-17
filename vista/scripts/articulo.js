@@ -3,12 +3,6 @@ var tabla;
 //Función que se ejecuta al inicio
 function init(){
 	mostrarform(false);
-	listar();
-
-	$("#formulario").on("submit",function(e)
-	{
-		guardaryeditar(e);	
-	})
 
 	//Cargamos los items al select categoria
 	$.post("../../ajax/articulo.php?op=selectCategoria", function(r){
@@ -21,6 +15,14 @@ function init(){
 	            $("#idmarca").html(r);
 	            $('#idmarca').selectpicker('refresh');
 	});
+
+	listar();
+
+	$("#formulario").on("submit",function(e)
+	{
+		guardaryeditar(e);	
+	});
+
 	$("#imagenmuestra").hide();
 }
 
@@ -29,10 +31,14 @@ function limpiar()
 {
 	$("#codigo").val("");
 	$("#nombre").val("");
+	$("#precio").val("");
 	$("#descripcion").val("");
 	$("#stock").val("");
+	$("#stock_minimo").val("");
 	$("#imagenmuestra").attr("src","");
 	$("#imagenactual").val("");
+	$("#venta_pausada").val("0");
+	$("#venta_pausada").selectpicker('refresh');
 	$("#print").hide();
 	$("#idarticulo").val("");
 	$("#idmarca").val("");
@@ -133,11 +139,15 @@ function mostrar(idarticulo)
 		$('#idmarca').selectpicker('refresh');
 		$("#codigo").val(data.codigo);
 		$("#nombre").val(data.nombre);
+		$("#precio").val(data.precio);
 		$("#stock").val(data.stock);
+		$("#stock_minimo").val(data.stock_minimo);
 		$("#descripcion").val(data.descripcion);
 		$("#imagenmuestra").show();
 		$("#imagenmuestra").attr("src","../../files/articulos/"+data.imagen);
 		$("#imagenactual").val(data.imagen);
+		$("#venta_pausada").val(data.venta_pausada);
+		$("#venta_pausada").selectpicker('refresh');
  		$("#idarticulo").val(data.idarticulo);
  		generarbarcode();
 
